@@ -2,6 +2,7 @@ import { Button } from "@/components/ui/button";
 import { db } from "@/utils/db";
 import { MockInterview } from "@/utils/schema";
 import { eq } from "drizzle-orm";
+import { Trash2 } from "lucide-react";
 import { useRouter } from "next/navigation";
 import React from "react";
 
@@ -20,8 +21,12 @@ function InterviewItemCard({ interview, removeInterviewHistory }) {
     <div className="border shadow-sm rounded-lg p-3">
       <div className="flex justify-between items-center">
         <h2 className="font-bold text-primary">{interview?.jobPosition}</h2>
-        <Button onClick={() => removeInterviewHistory(interview?.mockId)}>
-          delete
+        <Button
+          variant="destructive"
+          size="icon"
+          onClick={() => removeInterviewHistory(interview?.mockId)}
+        >
+          <Trash2 />
         </Button>
       </div>
       <h2 className="font-bold text-gray-400">{interview?.interviewRound}</h2>
