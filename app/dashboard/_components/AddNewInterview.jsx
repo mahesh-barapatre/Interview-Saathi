@@ -8,6 +8,13 @@ import {
   DialogTitle,
   DialogTrigger,
 } from "@/components/ui/dialog";
+import {
+  Select,
+  SelectContent,
+  SelectItem,
+  SelectTrigger,
+  SelectValue,
+} from "@/components/ui/select";
 import { Button } from "@/components/ui/button";
 import { Input } from "@/components/ui/input";
 import { Textarea } from "@/components/ui/textarea";
@@ -109,13 +116,23 @@ function AddNewInterview() {
 
                   <div className="mt-7 my-3">
                     <label>Interview Round</label>
-                    <Input
-                      placeholder="Ex. HR round, Technical round"
+                    <Select
                       required
-                      onChange={(event) =>
-                        setInterviewRound(event.target.value)
-                      }
-                    />
+                      onValueChange={(value) => setInterviewRound(value)}
+                    >
+                      <SelectTrigger>
+                        <SelectValue placeholder="Select Interview Round" />
+                      </SelectTrigger>
+                      <SelectContent>
+                        <SelectItem value="hr round">HR Round</SelectItem>
+                        <SelectItem value="technical round">
+                          Technical Round
+                        </SelectItem>
+                        <SelectItem value="telephonic round">
+                          Telephonic Round
+                        </SelectItem>
+                      </SelectContent>
+                    </Select>
                   </div>
                   <div className="mt-7 my-3">
                     <label>Job Role/Job Position</label>
