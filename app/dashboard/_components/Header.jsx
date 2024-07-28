@@ -1,11 +1,12 @@
 "use client";
-import { UserButton } from "@clerk/nextjs";
+import { UserButton, useUser } from "@clerk/nextjs";
 import Image from "next/image";
 import Link from "next/link";
 import { usePathname } from "next/navigation";
 import React, { useEffect } from "react";
 
 function Header() {
+  const { user } = useUser();
   const path = usePathname();
   useEffect(() => {
     console.log(path);
@@ -58,7 +59,9 @@ function Header() {
           </li>
         </Link>
       </ul>
-      <UserButton />
+      {user?.primaryEmailAddress?.emailAddress != "the.igloo18@gmail.com" && (
+        <UserButton />
+      )}
     </div>
   );
 }
