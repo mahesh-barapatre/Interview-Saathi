@@ -42,18 +42,28 @@ function AddNewInterview() {
     e.preventDefault();
     console.log(jobPosition, jobDesc, jobExperience, interviewRound);
 
-    const InputPrompt =
-      "Job position: " +
-      jobPosition +
-      ", Interview round: " +
-      interviewRound +
-      ", Job Description: " +
-      jobDesc +
-      ", Years of Experience : " +
-      jobExperience +
-      " , Depends on Job Position, Job Description & Years of Experience give us " +
-      process.env.NEXT_PUBLIC_INTERVIEW_QUESTION_COUNT +
-      " Interview question along with Answer in JSON format, Give us question and answer field on JSON only nothing else";
+    const InputPrompt = `Generate ${process.env.NEXT_PUBLIC_INTERVIEW_QUESTION_COUNT} highly relevant and well-structured interview questions along with precise, accurate answers.  
+   
+   Context:  
+   - **Job Position:** ${jobPosition}  
+   - **Interview Round:** ${interviewRound}  
+   - **Job Description:** ${jobDesc}  
+   - **Years of Experience Required:** ${jobExperience}  
+
+   Guidelines:  
+   - Ensure questions **align with the job position and experience level**.  
+   - Questions should cover **both theoretical and practical aspects**, emphasizing problem-solving skills where applicable.  
+   - Answers should be **concise, to the point, and technically accurate**, providing the **best possible response an interviewer expects**.  
+   - Structure the response strictly in JSON format with the following fields:  
+   
+      [
+       {
+         "question": "<interview question>",
+         "answer": "<ideal response>"
+       }
+     ]
+    
+   Do not include any explanations outside of the JSON structure. Focus on **high-quality, role-specific** questions and answers.`;
 
     const result = await chatSession.sendMessage(InputPrompt);
     const MockJsonResp = result.response

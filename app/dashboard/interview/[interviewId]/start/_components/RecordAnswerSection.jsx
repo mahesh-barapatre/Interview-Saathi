@@ -20,7 +20,7 @@ function RecordAnswerSection({
   const [userAnswer, setUserAnswer] = useState("");
   const { user } = useUser();
   const [loading, setLoading] = useState(false);
-  const [alreadySubmitted, setAlreadySubmitted] = useState(false);
+  // const [alreadySubmitted, setAlreadySubmitted] = useState(false);
   const {
     error,
     interimResult,
@@ -62,14 +62,21 @@ function RecordAnswerSection({
   const UpdateUserAnswer = async () => {
     console.log(userAnswer);
     setLoading(true);
-    const feedbackPrompt =
-      "Question:" +
-      mockInterviewQuestion[activeQuestionIndex]?.question +
-      ", User Answer:" +
-      userAnswer +
-      ",Depends on question and user answer for give interview question " +
-      " please give us rating for answer and feedback as area of improvmenet if any " +
-      "in just 3 to 5 lines to improve it in JSON format with rating field and feedback field";
+    const feedbackPrompt = `Evaluate the user's response to the given interview question and provide constructive feedback.  
+  Question: "${mockInterviewQuestion[activeQuestionIndex]?.question}"  
+  User Answer: "${userAnswer}"  
+
+  Based on the quality, relevance, clarity, and depth of the response, provide:  
+  1. A **rating (out of 10)** indicating how well the answer aligns with an ideal response.  
+  2. A **concise, constructive critique** identifying areas of improvement, such as missing key points, clarity issues, technical depth, or structuring suggestions.  
+  3. A **brief example or suggestion** (if needed) on how to enhance the answer.  
+
+  Format the response strictly as JSON with two fields:  
+  {
+    "rating": <numeric_rating_out_of_10>,
+    "feedback": "<precise and actionable feedback>"
+  }  
+  Ensure the feedback is **specific, practical, and directly useful** for improving interview performance.`;
 
     const result = await chatSession.sendMessage(feedbackPrompt);
     const mockJsonResp = result.response
@@ -92,7 +99,7 @@ function RecordAnswerSection({
       toast("User Answer recorded successfully");
       setUserAnswer("");
       setResults([]);
-      setAlreadySubmitted(true);
+      // setAlreadySubmitted(true);
     }
     setResults([]);
 
@@ -119,7 +126,8 @@ function RecordAnswerSection({
         />
       </div>
       <Button
-        disabled={loading || alreadySubmitted}
+        disabled={loading}
+        // disabled={loading || alreadySubmitted}
         variant="outline"
         className="my-10"
         onClick={StartStopRecording}
@@ -132,11 +140,12 @@ function RecordAnswerSection({
         ) : (
           <h2 className="text-primary flex gap-2 items-center">
             <Mic />
-            {alreadySubmitted
+            {/* {alreadySubmitted
               ? "Answer Submitted"
               : userAnswer?.length > 0
               ? "Re-record answer"
-              : "Record Answer"}
+              : "Record Answer"} */}
+            {userAnswer?.length > 0 ? "Re-record answer" : "Record Answer"}
           </h2>
         )}
       </Button>
