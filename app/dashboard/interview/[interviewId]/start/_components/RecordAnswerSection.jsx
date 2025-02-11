@@ -20,6 +20,7 @@ function RecordAnswerSection({
   const [userAnswer, setUserAnswer] = useState("");
   const { user } = useUser();
   const [loading, setLoading] = useState(false);
+  const [alreadySubmitted, setAlreadySubmitted] = useState(false);
   const {
     error,
     interimResult,
@@ -39,16 +40,21 @@ function RecordAnswerSection({
     );
   }, [results]);
 
-  useEffect(() => {
-    if (!isRecording && userAnswer?.length > 10) {
-      UpdateUserAnswer();
-    }
-  }, [userAnswer]);
+  // useEffect(() => {
+  //   if (!isRecording && userAnswer?.length > 10) {
+  //     UpdateUserAnswer();
+  //   }
+  // }, [userAnswer]);
 
   const StartStopRecording = async () => {
     if (isRecording) {
       stopSpeechToText();
     } else {
+      //clearing the previous answer for re-recording
+      setUserAnswer("");
+      setResults([]);
+
+      //start recording new answer
       startSpeechToText();
     }
   };
@@ -86,6 +92,7 @@ function RecordAnswerSection({
       toast("User Answer recorded successfully");
       setUserAnswer("");
       setResults([]);
+      setAlreadySubmitted(true);
     }
     setResults([]);
 
@@ -112,7 +119,7 @@ function RecordAnswerSection({
         />
       </div>
       <Button
-        disabled={loading}
+        disabled={loading || alreadySubmitted}
         variant="outline"
         className="my-10"
         onClick={StartStopRecording}
@@ -124,9 +131,17 @@ function RecordAnswerSection({
           </h2>
         ) : (
           <h2 className="text-primary flex gap-2 items-center">
-            <Mic /> Record Answer
+            <Mic />
+            {alreadySubmitted
+              ? "Answer Submitted"
+              : userAnswer?.length > 0
+              ? "Re-record answer"
+              : "Record Answer"}
           </h2>
         )}
+      </Button>
+      <Button variant="outline" className="my-10" onClick={UpdateUserAnswer}>
+        Submit Answer
       </Button>
     </div>
   );
