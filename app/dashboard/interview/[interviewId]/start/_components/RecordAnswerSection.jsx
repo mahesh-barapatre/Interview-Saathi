@@ -11,6 +11,7 @@ import { db } from "@/utils/db";
 import { UserAnswer } from "@/utils/schema";
 import { useUser } from "@clerk/nextjs";
 import moment from "moment";
+import VisualAiDetection from "./VisualAiDetection";
 
 function RecordAnswerSection({
   mockInterviewQuestion,
@@ -108,22 +109,8 @@ function RecordAnswerSection({
 
   return (
     <div className="flex items-center justify-center flex-col">
-      <div className="flex flex-col mt-20 justify-center items-center bg-black rounded-lg p-5">
-        <Image
-          src={"/webcam.png"}
-          width={200}
-          height={200}
-          alt="webcam"
-          className="absolute"
-        />
-        <Webcam
-          mirrored={true}
-          style={{
-            height: 500,
-            width: 500,
-            zIndex: 10,
-          }}
-        />
+      <div className="flex flex-col mt-20 justify-center items-center rounded-lg p-5">
+        <VisualAiDetection />
       </div>
       <Button
         disabled={loading}
