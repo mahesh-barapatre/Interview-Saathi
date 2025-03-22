@@ -22,15 +22,15 @@ function QuestionsSection({ mockInterviewQuestion, activeQuestionIndex }) {
   return (
     mockInterviewQuestion && (
       <div className="p-5 border rounded-lg my-10">
-        <div className="grid grid-cols-2 md:grid-cols-3 lg:grid-cols-4 gap-5">
+        <div className="grid grid-cols-5 md:grid-cols-3 lg:grid-cols-8 gap-1 md:gap-5">
           {mockInterviewQuestion &&
             mockInterviewQuestion.map((question, index) => (
               <h2
                 className={`p-2 border rounded-full
-                text-xs md:text-sm text-center cursor-pointer
+                text-xl text-center cursor-pointer
                 ${activeQuestionIndex == index && "bg-primary text-white"}`}
               >
-                Question #{index + 1}
+                {index + 1}
               </h2>
             ))}
         </div>

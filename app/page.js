@@ -1,9 +1,13 @@
+"use client";
 import { Button } from "@/components/ui/button";
 import Image from "next/image";
 import Header from "./dashboard/_components/Header";
 import { AtomIcon, Edit, Share2 } from "lucide-react";
+import { useState } from "react";
+import ChatBot from "./dashboard/_components/ChatBot";
 
 export default function Home() {
+  const [isChatBotOpen, setIsChatBotOpen] = useState(false); // Chatbot
   return (
     <div>
       <Image
@@ -13,6 +17,19 @@ export default function Home() {
         height={300}
       />
       <Header />
+      <div
+        className={`${
+          isChatBotOpen ? "" : "hidden"
+        } fixed bottom-16 right-3 rounded-lg p-2 z-50 w-1/4 h-3/4 border-4 border-blue-600 border-double bg-slate-100 rounded-2xl`}
+      >
+        <ChatBot />
+      </div>
+      <button
+        onClick={() => setIsChatBotOpen((prev) => !prev)}
+        className="fixed bottom-3 right-3 p-2 hover:shadow-lg rounded-xl bg-blue-600 text-white"
+      >
+        HelpLine
+      </button>
       <section className=" z-50">
         <div className="py-8 px-4 mx-auto max-w-screen-xl text-center lg:py-16 lg:px-12">
           <a

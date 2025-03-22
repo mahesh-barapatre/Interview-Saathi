@@ -28,7 +28,7 @@ function Interview({ params }) {
     setInterviewData(result[0]);
   };
   return (
-    <div className="my-10 ">
+    <div className="my-10 mx-10">
       <h2 className="font-bold text-2xl">Let's Get Started</h2>
       <div className="grid grid-cols-1 md:grid-cols-2 gap-10">
         <div className="flex flex-col my-5 gap-5 ">
@@ -80,13 +80,13 @@ function Interview({ params }) {
                 className="w-full"
                 onClick={() => setWebCamEnabled(true)}
               >
-                Enable Web Cam and Microphone
+                Check Web Cam and Microphone
               </Button>
             </>
           )}
         </div>
       </div>
-      <div className="flex justify-end items-end">
+      <div className="flex justify-end items-end my-5">
         <Link href={"/dashboard/interview/" + params.interviewId + "/start"}>
           <Button>Start Interview</Button>
         </Link>

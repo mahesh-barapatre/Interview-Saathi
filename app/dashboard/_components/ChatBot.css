@@ -1,0 +1,13 @@
+.user-message {
+  position: absolute;
+  right: 5%;
+  margin-top: 5px;
+}
+.bot-message {
+  margin-top: 45px;
+  /* border: 1px solid red; */
+  line-height: 2;
+}
+.bot-messagee {
+  margin-top: 2px;
+}

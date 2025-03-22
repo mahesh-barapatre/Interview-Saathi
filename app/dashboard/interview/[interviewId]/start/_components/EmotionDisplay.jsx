@@ -4,19 +4,20 @@ const EmotionDisplay = ({ emotion }) => {
   const renderAdvice = (emotion) => {
     switch (emotion) {
       case "angry":
-        return "It's important to stay calm during an interview. Take deep breaths and focus on positive aspects of the conversation.";
+        return "Stay calm. Take deep breaths and focus on the positives.";
       case "sad":
-        return "Interviews can be challenging, but stay motivated. Reflect on your achievements and maintain a positive outlook.";
+        return "Stay motivated. Reflect on your achievements and stay positive.";
       case "surprised":
-        return "Surprises happen! Take a moment to compose yourself and approach the next questions with confidence.";
+        return "Take a moment to compose yourself and stay confident.";
       case "fearful":
-        return "It's okay to feel nervous. Remember, preparation is key. Take deep breaths and trust your knowledge.";
+        return "Nervous? Breathe deeply and trust your preparation.";
       case "disgusted":
-        return "Maintain professionalism during interviews. Focus on the positives and steer the conversation productively.";
+        return "Stay professional. Focus on positives and steer ahead.";
       case "neutral":
-        return "You're doing great! Stay composed and keep up the steady performance.";
+        return "You're doing great! Keep up the steady performance.";
       case "happy":
-        return "Your positivity is contagious! Keep smiling and let your enthusiasm shine through.";
+        return "Your positivity shines! Keep smiling and stay enthusiastic.";
+
       default:
         return null;
     }

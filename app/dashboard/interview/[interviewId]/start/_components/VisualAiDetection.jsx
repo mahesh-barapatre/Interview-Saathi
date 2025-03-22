@@ -9,9 +9,11 @@ import "./style.css";
 import React, { useEffect, useRef, useState } from "react";
 import DetectionOverlay from "./DetectionOverlay";
 import EmotionDisplay from "./EmotionDisplay";
+import Alert from "./Alert";
 
 function VisualAiDetection() {
-  const [emotion, setEmotion] = useState("Neutral");
+  const [emotion, setEmotion] = useState("neutral");
+
   useEffect(() => {
     //check the camera access
     if (
@@ -107,6 +109,7 @@ function VisualAiDetection() {
         videoRef.current,
         performance.now()
       );
+
       setDetectionData(
         detections.detections.map((detection) => ({
           confidence: Math.round(detection.categories[0].score * 100),
@@ -129,6 +132,9 @@ function VisualAiDetection() {
         <span className="mdc-button__ripple"></span>
         <span className="mdc-button__label">ENABLE WEBCAM</span>
       </button>
+      {/* <Alert message={"Bad posture detected! 'Sit Straight'"} />
+      <Alert message={"You need to enable WebCam!!"} type="warning" />
+      <Alert message={"Doing Great!"} type="success" /> */}
       <video id="webcam" ref={videoRef} muted autoPlay playsInline></video>
       <EmotionDisplay emotion={emotion} />
       <DetectionOverlay data={detectionData} />

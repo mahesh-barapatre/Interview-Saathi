@@ -13,7 +13,7 @@ function Header() {
   }, []);
 
   return (
-    <div className="flex p-4 items-center justify-between bg-secondary shadow-sm">
+    <div className="flex p-4 items-center justify-between bg-secondary shadow-sm sticky top-0">
       <Link href={"/"} className="flex items-center space-x-2">
         <Image src={"/logo.png"} width={50} height={100} alt="logo" />
         <span className="text-3xl font-extrabold">Interview-Saathi.AI</span>

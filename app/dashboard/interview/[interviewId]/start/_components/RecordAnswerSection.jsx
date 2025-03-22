@@ -109,36 +109,33 @@ function RecordAnswerSection({
 
   return (
     <div className="flex items-center justify-center flex-col">
-      <div className="flex flex-col mt-20 justify-center items-center rounded-lg p-5">
+      <div className="flex flex-col justify-center items-center rounded-lg p-5">
         <VisualAiDetection />
       </div>
-      <Button
-        disabled={loading}
-        // disabled={loading || alreadySubmitted}
-        variant="outline"
-        className="my-10"
-        onClick={StartStopRecording}
-      >
-        {isRecording ? (
-          <h2 className="text-red-600 animate-pulse flex gap-2 items-center">
-            <StopCircle />
-            Stop Recording
-          </h2>
-        ) : (
-          <h2 className="text-primary flex gap-2 items-center">
-            <Mic />
-            {/* {alreadySubmitted
-              ? "Answer Submitted"
-              : userAnswer?.length > 0
-              ? "Re-record answer"
-              : "Record Answer"} */}
-            {userAnswer?.length > 0 ? "Re-record answer" : "Record Answer"}
-          </h2>
-        )}
-      </Button>
-      <Button variant="outline" className="my-10" onClick={UpdateUserAnswer}>
-        Submit Answer
-      </Button>
+      <div className="flex">
+        <Button
+          disabled={loading}
+          // disabled={loading || alreadySubmitted}
+          variant="outline"
+          className=""
+          onClick={StartStopRecording}
+        >
+          {isRecording ? (
+            <h2 className="text-red-600 animate-pulse flex gap-2 items-center">
+              <StopCircle />
+              Stop Recording
+            </h2>
+          ) : (
+            <h2 className="text-primary flex gap-2 items-center">
+              <Mic />
+              {userAnswer?.length > 0 ? "Re-record answer" : "Record Answer"}
+            </h2>
+          )}
+        </Button>
+        <Button variant="outline" className="" onClick={UpdateUserAnswer}>
+          Submit Answer
+        </Button>
+      </div>
     </div>
   );
 }
