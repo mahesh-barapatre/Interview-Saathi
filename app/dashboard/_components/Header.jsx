@@ -4,6 +4,7 @@ import Image from "next/image";
 import Link from "next/link";
 import { usePathname } from "next/navigation";
 import React, { useEffect } from "react";
+import { Sparkles } from "lucide-react";
 
 function Header() {
   const { user } = useUser();
@@ -13,10 +14,10 @@ function Header() {
   }, []);
 
   return (
-    <div className="flex p-4 items-center justify-between bg-secondary shadow-sm sticky top-0">
+    <div className="flex p-4 items-center justify-between bg-secondary shadow-md sticky top-0 bg-white text-lg">
       <Link href={"/"} className="flex items-center space-x-2">
-        <Image src={"/logo.png"} width={50} height={100} alt="logo" />
-        <span className="text-3xl font-extrabold">Interview-Saathi.AI</span>
+        <Image src={"/images/logo.webp"} width={50} height={100} alt="logo" />
+        <span className="text-3xl">Interview-Saathi.AI</span>
       </Link>
       <ul className="hidden md:flex gap-6">
         <Link href={"/dashboard"}>
@@ -56,6 +57,17 @@ function Header() {
             `}
           >
             How it Works?
+          </li>
+        </Link>
+        <Link href={"/apply/Home"}>
+          <li
+            className={`hover:text-primary hover:font-bold transition-all
+            cursor-pointer flex
+            ${path == "/apply/Home" && "text-primary font-bold"}
+            `}
+          >
+            Careers{" "}
+            <Sparkles className="text-yellow-300 relative bottom-3 right-1" />
           </li>
         </Link>
       </ul>

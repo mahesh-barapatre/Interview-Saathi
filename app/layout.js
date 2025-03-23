@@ -2,6 +2,7 @@ import { Outfit } from "next/font/google";
 import "./globals.css";
 import { ClerkProvider } from "@clerk/nextjs";
 import { Toaster } from "@/components/ui/sonner";
+import { ScrollToTop } from "@/components/ScrollToTop";
 
 const inter = Outfit({ subsets: ["latin"] });
 
@@ -18,6 +19,7 @@ export default function RootLayout({ children }) {
         <body className={inter.className}>
           <Toaster />
           {children}
+          <ScrollToTop />
         </body>
       </html>
     </ClerkProvider>

@@ -1,14 +1,20 @@
 import React, { useState, useEffect, useRef } from "react";
-// import { BsFillSendFill, BsTrash } from "react-icons/bs"; // Import trash icon
 import { GoogleGenerativeAI } from "@google/generative-ai";
 import "./ChatBot.css";
-import { SendHorizontal, CircleStop, Trash2 } from "lucide-react";
+import {
+  SendHorizontal,
+  CircleStop,
+  Trash2,
+  BotMessageSquare,
+  UserCheck,
+} from "lucide-react";
+import Image from "next/image";
 
 const ChatBot = () => {
   const [prompt, setPrompt] = useState("");
   const [messages, setMessages] = useState([
     {
-      text: "You are a customer support representative for an AI interview platform where users can take AI-generated interviews, receive feedback, and get correct answers. They can schedule thousands of interviews for free. The platform also includes AI monitoring for stance and facial expressions during interviews. Your job is to replace a real human in customer support, responding naturally like a human agent. Keep your answers short and to the point. Do not use headings, special characters, or long explanations. Keep it simple and conversational.",
+      text: "You are a customer support representative for an AI interview platform where users can take AI-generated interviews, receive feedback, get correct answers and also find job postings. They can schedule thousands of interviews for free. The platform also includes AI monitoring for stance and facial expressions during interviews. Your job is to replace a real human in customer support, responding naturally like a human agent. Keep your answers short and to the point. Do not use headings, special characters, or long explanations. Keep it simple and conversational.",
       sender: "info",
     },
   ]);
@@ -100,23 +106,33 @@ const ChatBot = () => {
 
   return (
     <div className="">
+      <div className="flex items-center space-x-3">
+        <Image src={"/images/logo.webp"} width={50} height={100} alt="logo" />
+        <h1 className="text-xl">AI-Saathi</h1>
+      </div>
+
       <div className="conversation ">
         {messages.map((msg, index) => (
           <div
             key={index}
-            className={
+            className={`${
               msg.sender === "user"
                 ? "user-message"
                 : msg.sender === "bot"
                 ? "bot-message"
                 : "hidden"
-            }
+            } flex w-4/5`}
           >
+            {msg.sender === "bot" && <BotMessageSquare width={100} />}
             {msg.text}
+            {msg.sender === "user" && <UserCheck />}
           </div>
         ))}
         {isLoading && (
-          <div className="bot-message">...</div> // Show "..." while loading
+          <div className="bot-message">
+            <BotMessageSquare />
+            ...
+          </div> // Show "..." while loading
         )}
         {typingResponse && (
           <div className="bot-messagee">{typingResponse}</div> // Show typing response

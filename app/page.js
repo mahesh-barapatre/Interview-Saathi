@@ -16,11 +16,12 @@ export default function Home() {
         width={1200}
         height={300}
       />
+
       <Header />
       <div
         className={`${
           isChatBotOpen ? "" : "hidden"
-        } fixed bottom-16 right-3 rounded-lg p-2 z-50 w-1/4 h-3/4 border-4 border-blue-600 border-double bg-slate-100 rounded-2xl`}
+        } fixed bottom-16 right-3 p-2 z-50 w-1/4 h-3/4 bg-white border-2 rounded-2xl`}
       >
         <ChatBot />
       </div>
