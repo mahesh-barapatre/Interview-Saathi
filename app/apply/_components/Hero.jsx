@@ -20,7 +20,7 @@ const Hero = () => {
             </p>
           </div>
           {/* image */}
-          <div className="hidden lg:block">
+          <div className="block">
             <Image src={HeroImg} alt="hero image" width={700} height={400} />
           </div>
         </div>

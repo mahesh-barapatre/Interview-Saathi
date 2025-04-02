@@ -7,6 +7,7 @@ import { Search } from "lucide-react";
 
 import { useState } from "react";
 import Header from "@/app/dashboard/_components/Header";
+import NavFooter from "@/app/dashboard/_components/NavFooter";
 
 const Home = () => {
   const [searchQuery, setSearchQuery] = useState("");
@@ -35,7 +36,7 @@ const Home = () => {
       <Header />
       <Hero />
       {/* search box */}
-      <div className="bg-white border-2 border-blue-500 rounded-full w-1/3 text-center flex justify-center items-center overflow-hidden m-auto mb-9">
+      <div className="bg-white border-2 border-blue-500 rounded-full w-3/4 md:w-1/3 text-center flex justify-center items-center overflow-hidden m-auto mb-9">
         <input
           className="w-full outline-none rounded-l-md bg-slate-50 p-3"
           placeholder="Search for Jobs, Company, Role etc"
@@ -58,6 +59,9 @@ const Home = () => {
         </button>{" "}
       </div>
       <AllJobs jobs={filteredJobs} />
+      <div className="md:hidden w-full m-auto fixed bottom-0">
+        <NavFooter />
+      </div>
     </div>
   );
 };
