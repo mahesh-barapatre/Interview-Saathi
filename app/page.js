@@ -2,9 +2,10 @@
 import { Button } from "@/components/ui/button";
 import Image from "next/image";
 import Header from "./dashboard/_components/Header";
-import { AtomIcon, Edit, Share2 } from "lucide-react";
+import { AtomIcon, BotMessageSquare, Edit, Share2 } from "lucide-react";
 import { useState } from "react";
 import ChatBot from "./dashboard/_components/ChatBot";
+import NavFooter from "./dashboard/_components/NavFooter";
 
 export default function Home() {
   const [isChatBotOpen, setIsChatBotOpen] = useState(false); // Chatbot
@@ -21,15 +22,18 @@ export default function Home() {
       <div
         className={`${
           isChatBotOpen ? "" : "hidden"
-        } fixed bottom-16 right-3 p-2 z-50 w-1/4 h-3/4 bg-white border-2 rounded-2xl`}
+        } fixed bottom-28 md:bottom-16 right-3 p-2 z-50 w-4/5 md:w-1/4 h-3/4 bg-white border-2 rounded-2xl`}
       >
         <ChatBot />
       </div>
+      <div className="md:hidden w-full m-auto fixed bottom-0">
+        <NavFooter />
+      </div>
       <button
         onClick={() => setIsChatBotOpen((prev) => !prev)}
-        className="fixed bottom-3 right-3 p-2 hover:shadow-lg rounded-xl bg-blue-600 text-white"
+        className="fixed bottom-16 md:bottom-3 right-3 p-2 hover:shadow-lg rounded-xl bg-blue-600 text-white"
       >
-        HelpLine
+        <BotMessageSquare />
       </button>
       <section className=" z-50">
         <div className="py-8 px-4 mx-auto max-w-screen-xl text-center lg:py-16 lg:px-12">

@@ -26,13 +26,13 @@ export const ScrollToTop = () => {
   };
 
   return (
-    <div className="fixed bottom-4 left-4">
+    <div className="fixed bottom-16 md:bottom-4 left-4">
       {isVisible && (
         <button
           onClick={scrollToTop}
           title="Press to go top"
           type="button"
-          className="bg-blue-500 text-white rounded-full w-12 h-12 flex items-center justify-center"
+          className="bg-blue-500 text-white rounded-full h-8 w-8 md:w-12 md:h-12 flex items-center justify-center"
         >
           <ArrowUp />
         </button>

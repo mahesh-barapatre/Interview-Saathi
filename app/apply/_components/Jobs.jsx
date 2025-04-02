@@ -16,9 +16,9 @@ const AllJobs = ({ jobs }) => {
   const color = ["lime", "sky", "pink"];
 
   return (
-    <div className="max-w-6xl mx-auto">
+    <div className="max-w-6xl mx-auto p-3 md:p-0">
       {/* Job Listings */}
-      <div className="grid grid-cols-1 md:grid-cols-3 gap-9 bg-">
+      <div className="grid grid-cols-1 md:grid-cols-3 gap-9">
         {paginatedJobs.map((job, i) => (
           <Link key={job.id} href={`/apply/jobDetails/${job.id}`}>
             <JobCard job={job} color={color[i % 3]} />
