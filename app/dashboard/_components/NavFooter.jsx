@@ -12,7 +12,7 @@ function NavFooter() {
 
   return (
     <div className="m-auto flex items-center justify-between bg-secondary shadow-md bg-blue-100 py-2 text-xs z-50">
-      <ul className="gap-6 w-full flex flex-row justify-center items-center">
+      <ul className="gap-6 w-full flex flex-row justify-evenly items-center">
         <Link href={"/dashboard"}>
           <li
             className={`hover:text-primary hover:font-bold transition-all items-center flex flex-col

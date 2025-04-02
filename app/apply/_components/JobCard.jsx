@@ -34,7 +34,7 @@ export const JobCard = ({ job, color }) => {
 
       {/* Company Info & Button */}
       <div
-        className={`flex items-center justify-between bg-${color}-300 p-3 min-h-20 max-h-20`}
+        className={`flex items-center justify-between bg-lime-300 md:bg-${color}-300 p-3 min-h-20 max-h-20`}
       >
         <div className="flex items-center gap-3">
           <img
