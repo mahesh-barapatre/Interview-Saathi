@@ -60,4 +60,55 @@ export const jobs = [
     description:
       "Build interactive UIs for AI-driven applications, collaborate with backend teams, and optimize frontend performance.",
   },
+  {
+    role: "Backend Developer Intern",
+    company: "Zocket",
+    apply_link: "https://zocket.in/careers",
+    location: "Chennai, India",
+    type: "Internship",
+    skills: ["Node.js", "Express", "MongoDB", "AWS", "Redis"],
+    description:
+      "Build scalable backend services for Zocket’s digital marketing automation tools. Work with DevOps to streamline deployments.",
+  },
+  {
+    role: "DevOps Engineer Intern",
+    company: "Appsmith",
+    apply_link: "https://www.appsmith.com/careers",
+    location: "Remote",
+    type: "Internship",
+    skills: ["Docker", "Kubernetes", "CI/CD", "AWS", "Linux"],
+    description:
+      "Assist in managing infrastructure, automating deployments, and monitoring services for a low-code platform.",
+  },
+  {
+    role: "AI/ML Intern",
+    company: "Wobot Intelligence",
+    apply_link: "https://wobot.ai/careers",
+    location: "Remote",
+    type: "Internship",
+    skills: ["Python", "TensorFlow", "OpenCV", "Deep Learning"],
+    description:
+      "Work with the AI team to build and improve computer vision models for surveillance and analytics.",
+  },
+  {
+    role: "UI/UX Designer Intern",
+    company: "Fyle",
+    apply_link: "https://fylehq.com/careers",
+    location: "Bangalore, India",
+    type: "Internship",
+    skills: ["Figma", "Adobe XD", "User Research", "Prototyping"],
+    description:
+      "Design intuitive interfaces for expense management software. Collaborate with product managers and engineers.",
+  },
+  {
+    role: "Blockchain Developer Intern",
+    company: "Dappify",
+    apply_link: "https://dappify.io/careers",
+    location: "Remote",
+    type: "Internship",
+    skills: ["Solidity", "Ethereum", "Smart Contracts", "Web3.js"],
+    description:
+      "Develop decentralized applications and smart contracts for NFT and DeFi use cases. Gain experience in Web3 development.",
+  }
 ];
+
