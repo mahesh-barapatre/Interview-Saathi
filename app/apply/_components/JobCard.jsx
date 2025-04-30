@@ -1,7 +1,8 @@
 import Image from "next/image";
-import React from "react";
+import React, {useNavigate} from "react";
 
 export const JobCard = ({ job, color }) => {
+  const navigate = useNavigate();
   return (
     <div className="relative transition-transform duration-300 hover:scale-105 border-white shadow-lg rounded-xl overflow-hidden border-[1px] border-opacity-20">
       <div className="min-h-60 p-3 max-h-60 bg-white">
@@ -45,7 +46,7 @@ export const JobCard = ({ job, color }) => {
           />
           <span className="font-semibold bg-gre">{job.company}</span>
         </div>
-        <button className="btn btn-primary btn-sm bg-teal-700 text-white px-3 py-2 font-semibold rounded-full text-sm hover:shadow-lg transition-transform duration-300 hover:scale-105">
+        <button onClick=(()=>navigate(job.apply_link)) className="btn btn-primary btn-sm bg-teal-700 text-white px-3 py-2 font-semibold rounded-full text-sm hover:shadow-lg transition-transform duration-300 hover:scale-105">
           Apply
         </button>
       </div>
