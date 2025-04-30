@@ -39,7 +39,7 @@ export const JobCard = ({ job, color }) => {
         <div className="flex items-center gap-3">
           <img
             // src={job.companyLogo}
-            src="https://frontendehubbucket.s3.ap-south-1.amazonaws.com/frontend/navbar/logo.svg"
+            src="https://img.freepik.com/premium-vector/company-icon-simple-element-illustration-company-concept-symbol-design-can-be-used-web-mobile_159242-7784.jpg"
             alt={job.company}
             className="h-16 w-16 rounded-full bg-white p-2"
           />
